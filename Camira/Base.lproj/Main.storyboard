@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G1j-TU-AAg">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="CH5-ey-gtP">
+            <objects>
+                <tableViewController id="G1j-TU-AAg" customClass="ViewController" customModule="Camira" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lca-wp-pGl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="HEU-Kg-GDW">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HEU-Kg-GDW" id="wGH-VO-DME">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceCell" id="6Ad-SE-xQl">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Ad-SE-xQl" id="SjY-KP-ALe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionCell" id="OoB-BH-A0D" customClass="ActionCell" customModule="Camira" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OoB-BH-A0D" id="KAW-jq-1Xh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1FJ-XX-jub">
+                                            <rect key="frame" x="8" y="7" width="274" height="30"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="leftButtonAction:" destination="OoB-BH-A0D" eventType="touchUpInside" id="hFc-J6-9ZW"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5s-Ha-cda">
+                                            <rect key="frame" x="318" y="7" width="274" height="30"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="rightButtonAction:" destination="OoB-BH-A0D" eventType="touchUpInside" id="7R4-S5-tGP"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="M5s-Ha-cda" secondAttribute="trailing" id="2UA-Zg-DKI"/>
+                                        <constraint firstItem="M5s-Ha-cda" firstAttribute="leading" secondItem="1FJ-XX-jub" secondAttribute="trailing" constant="36" id="4sF-Ew-zcb"/>
+                                        <constraint firstItem="1FJ-XX-jub" firstAttribute="width" secondItem="M5s-Ha-cda" secondAttribute="width" id="7ER-19-FNV"/>
+                                        <constraint firstItem="1FJ-XX-jub" firstAttribute="leading" secondItem="KAW-jq-1Xh" secondAttribute="leadingMargin" id="7zV-3e-bIY"/>
+                                        <constraint firstItem="M5s-Ha-cda" firstAttribute="baseline" secondItem="1FJ-XX-jub" secondAttribute="baseline" id="E1B-BY-cyh"/>
+                                        <constraint firstItem="1FJ-XX-jub" firstAttribute="top" secondItem="KAW-jq-1Xh" secondAttribute="topMargin" constant="-1" id="KVq-cO-Wg8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leftActionButton" destination="1FJ-XX-jub" id="PAt-2F-fFp"/>
+                                    <outlet property="rightActionButton" destination="M5s-Ha-cda" id="sCJ-0r-6zZ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="G1j-TU-AAg" id="5Q2-lW-1oD"/>
+                            <outlet property="delegate" destination="G1j-TU-AAg" id="PPE-ST-9Qi"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7RK-qi-1ci" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496" y="428"/>
+        </scene>
+    </scenes>
+</document>

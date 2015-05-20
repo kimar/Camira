@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC54C8431B0C6C23001D5C35 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC54C8421B0C6C23001D5C35 /* ActionCell.swift */; };
+		EC9183251B09C94000207F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183241B09C94000207F4A /* AppDelegate.swift */; };
+		EC9183271B09C94000207F4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183261B09C94000207F4A /* ViewController.swift */; };
+		EC91832A1B09C94000207F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9183281B09C94000207F4A /* Main.storyboard */; };
+		EC91832C1B09C94000207F4A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC91832B1B09C94000207F4A /* Images.xcassets */; };
+		EC91832F1B09C94000207F4A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC91832D1B09C94000207F4A /* LaunchScreen.xib */; };
+		EC91833B1B09C94000207F4A /* CamiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91833A1B09C94000207F4A /* CamiraTests.swift */; };
+		EC9183461B09C96900207F4A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183451B09C96900207F4A /* Player.swift */; };
+		EC9183481B09C97200207F4A /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183471B09C97200207F4A /* Object.swift */; };
+		EC91834A1B09C98900207F4A /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183491B09C98900207F4A /* Place.swift */; };
+		EC91834C1B09C9E400207F4A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91834B1B09C9E400207F4A /* Game.swift */; };
+		EC91834E1B09CA9D00207F4A /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91834D1B09CA9D00207F4A /* Action.swift */; };
+		EC9183501B09CBF800207F4A /* Npc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC91834F1B09CBF800207F4A /* Npc.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC9183351B09C94000207F4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC9183171B09C94000207F4A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC91831E1B09C94000207F4A;
+			remoteInfo = Camira;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC54C8421B0C6C23001D5C35 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		EC91831F1B09C94000207F4A /* Camira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camira.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9183231B09C94000207F4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC9183241B09C94000207F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC9183261B09C94000207F4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC9183291B09C94000207F4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC91832B1B09C94000207F4A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EC91832E1B09C94000207F4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EC9183341B09C94000207F4A /* CamiraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CamiraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC9183391B09C94000207F4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC91833A1B09C94000207F4A /* CamiraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamiraTests.swift; sourceTree = "<group>"; };
+		EC9183451B09C96900207F4A /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EC9183471B09C97200207F4A /* Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		EC9183491B09C98900207F4A /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		EC91834B1B09C9E400207F4A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		EC91834D1B09CA9D00207F4A /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		EC91834F1B09CBF800207F4A /* Npc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Npc.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC91831C1B09C94000207F4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC9183311B09C94000207F4A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC9183161B09C94000207F4A = {
+			isa = PBXGroup;
+			children = (
+				EC9183211B09C94000207F4A /* Camira */,
+				EC9183371B09C94000207F4A /* CamiraTests */,
+				EC9183201B09C94000207F4A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC9183201B09C94000207F4A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC91831F1B09C94000207F4A /* Camira.app */,
+				EC9183341B09C94000207F4A /* CamiraTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC9183211B09C94000207F4A /* Camira */ = {
+			isa = PBXGroup;
+			children = (
+				EC9183441B09C95A00207F4A /* Engine */,
+				EC9183241B09C94000207F4A /* AppDelegate.swift */,
+				EC9183261B09C94000207F4A /* ViewController.swift */,
+				EC9183281B09C94000207F4A /* Main.storyboard */,
+				EC91832B1B09C94000207F4A /* Images.xcassets */,
+				EC91832D1B09C94000207F4A /* LaunchScreen.xib */,
+				EC9183221B09C94000207F4A /* Supporting Files */,
+			);
+			path = Camira;
+			sourceTree = "<group>";
+		};
+		EC9183221B09C94000207F4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC9183231B09C94000207F4A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC9183371B09C94000207F4A /* CamiraTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC91833A1B09C94000207F4A /* CamiraTests.swift */,
+				EC9183381B09C94000207F4A /* Supporting Files */,
+			);
+			path = CamiraTests;
+			sourceTree = "<group>";
+		};
+		EC9183381B09C94000207F4A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC9183391B09C94000207F4A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EC9183441B09C95A00207F4A /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				EC9183451B09C96900207F4A /* Player.swift */,
+				EC9183491B09C98900207F4A /* Place.swift */,
+				EC9183471B09C97200207F4A /* Object.swift */,
+				EC91834B1B09C9E400207F4A /* Game.swift */,
+				EC91834D1B09CA9D00207F4A /* Action.swift */,
+				EC91834F1B09CBF800207F4A /* Npc.swift */,
+				EC54C8421B0C6C23001D5C35 /* ActionCell.swift */,
+			);
+			path = Engine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC91831E1B09C94000207F4A /* Camira */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC91833E1B09C94000207F4A /* Build configuration list for PBXNativeTarget "Camira" */;
+			buildPhases = (
+				EC91831B1B09C94000207F4A /* Sources */,
+				EC91831C1B09C94000207F4A /* Frameworks */,
+				EC91831D1B09C94000207F4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Camira;
+			productName = Camira;
+			productReference = EC91831F1B09C94000207F4A /* Camira.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC9183331B09C94000207F4A /* CamiraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC9183411B09C94000207F4A /* Build configuration list for PBXNativeTarget "CamiraTests" */;
+			buildPhases = (
+				EC9183301B09C94000207F4A /* Sources */,
+				EC9183311B09C94000207F4A /* Frameworks */,
+				EC9183321B09C94000207F4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC9183361B09C94000207F4A /* PBXTargetDependency */,
+			);
+			name = CamiraTests;
+			productName = CamiraTests;
+			productReference = EC9183341B09C94000207F4A /* CamiraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC9183171B09C94000207F4A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Marcus Kida";
+				TargetAttributes = {
+					EC91831E1B09C94000207F4A = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					EC9183331B09C94000207F4A = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = EC91831E1B09C94000207F4A;
+					};
+				};
+			};
+			buildConfigurationList = EC91831A1B09C94000207F4A /* Build configuration list for PBXProject "Camira" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC9183161B09C94000207F4A;
+			productRefGroup = EC9183201B09C94000207F4A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC91831E1B09C94000207F4A /* Camira */,
+				EC9183331B09C94000207F4A /* CamiraTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC91831D1B09C94000207F4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC91832A1B09C94000207F4A /* Main.storyboard in Resources */,
+				EC91832F1B09C94000207F4A /* LaunchScreen.xib in Resources */,
+				EC91832C1B09C94000207F4A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC9183321B09C94000207F4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC91831B1B09C94000207F4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC9183271B09C94000207F4A /* ViewController.swift in Sources */,
+				EC91834C1B09C9E400207F4A /* Game.swift in Sources */,
+				EC9183461B09C96900207F4A /* Player.swift in Sources */,
+				EC9183481B09C97200207F4A /* Object.swift in Sources */,
+				EC91834E1B09CA9D00207F4A /* Action.swift in Sources */,
+				EC9183501B09CBF800207F4A /* Npc.swift in Sources */,
+				EC54C8431B0C6C23001D5C35 /* ActionCell.swift in Sources */,
+				EC9183251B09C94000207F4A /* AppDelegate.swift in Sources */,
+				EC91834A1B09C98900207F4A /* Place.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC9183301B09C94000207F4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC91833B1B09C94000207F4A /* CamiraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC9183361B09C94000207F4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC91831E1B09C94000207F4A /* Camira */;
+			targetProxy = EC9183351B09C94000207F4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC9183281B09C94000207F4A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC9183291B09C94000207F4A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC91832D1B09C94000207F4A /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC91832E1B09C94000207F4A /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC91833C1B09C94000207F4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC91833D1B09C94000207F4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC91833F1B09C94000207F4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Camira/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC9183401B09C94000207F4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Camira/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EC9183421B09C94000207F4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CamiraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Camira.app/Camira";
+			};
+			name = Debug;
+		};
+		EC9183431B09C94000207F4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CamiraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Camira.app/Camira";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC91831A1B09C94000207F4A /* Build configuration list for PBXProject "Camira" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC91833C1B09C94000207F4A /* Debug */,
+				EC91833D1B09C94000207F4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC91833E1B09C94000207F4A /* Build configuration list for PBXNativeTarget "Camira" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC91833F1B09C94000207F4A /* Debug */,
+				EC9183401B09C94000207F4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC9183411B09C94000207F4A /* Build configuration list for PBXNativeTarget "CamiraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC9183421B09C94000207F4A /* Debug */,
+				EC9183431B09C94000207F4A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC9183171B09C94000207F4A /* Project object */;
+}
