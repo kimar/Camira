@@ -40,14 +40,20 @@ class Game: NSObject {
     }
     
     func play () {
-        self.heartbeat = NSTimer(timeInterval: 1.0, target: self, selector: "heartbeat:", userInfo: nil, repeats: true)
+        self.heartbeat = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "heartbeat:", userInfo: nil, repeats: true)
         self.tableView.reloadData()
     }
     
-    private func heartbeat (sender: NSTimer) {
+    func heartbeat (sender: NSTimer) {
         if let place = placeAtStep(currentStep()) {
             if let nextPlace = place.nextPlace {
-                
+                if let delay = nextPlace.delay {
+                    let newDelay = Int(delay - 1)
+                    nextPlace.delay = newDelay
+                    if newDelay == 0 {
+                        tableView.reloadData()
+                    }
+                }
             }
         }
     }
@@ -137,7 +143,9 @@ class Game: NSObject {
                 return action.nextPlace
             }
             if let nextPlace = aPlace.nextPlace {
-                return nextPlace
+                if nextPlace.delay == 0 {
+                    return nextPlace
+                }
             }
             return nil
         }
