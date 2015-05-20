@@ -27,6 +27,8 @@ class Game: NSObject {
     let tableView: UITableView!
     weak var gameDelegate: GameDelegate!
     
+    var heartbeat: NSTimer!
+    
     init(title: String!, subtitle: String!, initialPlace: Place!, player: Player!, tableView: UITableView!, gameDelegate: GameDelegate) {
         self.title = title
         self.subtitle = subtitle
@@ -38,7 +40,16 @@ class Game: NSObject {
     }
     
     func play () {
+        self.heartbeat = NSTimer(timeInterval: 1.0, target: self, selector: "heartbeat:", userInfo: nil, repeats: true)
         self.tableView.reloadData()
+    }
+    
+    private func heartbeat (sender: NSTimer) {
+        if let place = placeAtStep(currentStep()) {
+            if let nextPlace = place.nextPlace {
+                
+            }
+        }
     }
     
     func numberOfRowsInSection (section: Int) -> Int {
@@ -92,9 +103,9 @@ class Game: NSObject {
         if step == 0 {
             return initialPlace.text
         }
-        let place = placeAtStep(step)
+        let place = placeAtStep(step-1)
         if let aPlace = place {
-            return place?.text
+            return aPlace.text
         }
         return nil
     }
@@ -124,6 +135,9 @@ class Game: NSObject {
         if let aPlace = place {
             if let action = selectedAction(aPlace) {
                 return action.nextPlace
+            }
+            if let nextPlace = aPlace.nextPlace {
+                return nextPlace
             }
             return nil
         }

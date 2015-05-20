@@ -16,14 +16,16 @@ class Place: NSObject {
     let text: String!
     let actions:[Action]?
     let npcs:[Npc]?
+    let nextPlace: Place?
     
     var selectedAction: CamiraPlaceAction?
     var delay: Int?
     
-    init(text: String!, actions:[Action]?, npcs:[Npc]?) {
+    init(text: String!, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
         self.text = text
         self.actions = actions
         self.npcs = npcs
+        self.nextPlace = nextPlace
         super.init()
     }
 }
