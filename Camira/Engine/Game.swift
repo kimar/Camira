@@ -45,35 +45,31 @@ class Game: NSObject {
     }
     
     func heartbeat (sender: NSTimer) {
-        if let place = placeAtStep(currentStep()) {
-            if let nextPlace = place.nextPlace {
-                if let delay = nextPlace.delay {
-                    let newDelay = Int(delay - 1)
-                    nextPlace.delay = newDelay
-                    if newDelay == 0 {
-                        tableView.reloadData()
-                    }
-                }
+        if let place = placeAtStep(currentStep()), nextPlace = place.nextPlace, delay = nextPlace.delay {
+            let newDelay = Int(delay - 1)
+            nextPlace.delay = newDelay
+            if newDelay == 0 {
+                tableView.reloadData()
             }
         }
     }
     
     func numberOfRowsInSection (section: Int) -> Int {
         let rows = currentStep() + 1
-        println("rows: \(rows)")
+        print("rows: \(rows)")
         return rows
     }
     
     func cellForRowAtIndexPath (indexPath: NSIndexPath) -> UITableViewCell {
-        println("indexPath.row: \(indexPath.row) * isPlace: \(isPlace(indexPath.row))")
+        print("indexPath.row: \(indexPath.row) * isPlace: \(isPlace(indexPath.row))")
         if indexPath.row == 2 {
             
         }
         if let isPlace = isPlace(indexPath.row) {
             if isPlace {
-                let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath) as! UITableViewCell
+                let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath) 
                 if let label = cell.textLabel {
-                    label.text = textAtStep(indexPath.row, error: nil)
+                    label.text = try? textAtStep(indexPath.row)
                 }
                 return cell
             } else {
@@ -84,7 +80,7 @@ class Game: NSObject {
                         delegate.gameWillReloadData(self)
                     }
                 }
-                println("actions at step \(indexPath.row) -> \(actionsAtStep(indexPath.row))")
+                print("actions at step \(indexPath.row) -> \(actionsAtStep(indexPath.row))")
                 if let actions = actionsAtStep(indexPath.row) {
                     if actions.count < 1 {
                         cell.leftActionButton.hidden = true
@@ -102,18 +98,22 @@ class Game: NSObject {
                 return cell
             }
         }
-        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
+        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
     }
     
-    private func textAtStep (step: Int, error: NSErrorPointer) -> String? {
+    private func textAtStep (step: Int) throws -> String {
+        let error: NSError! = NSError(domain: "Migrator", code: 0, userInfo: nil)
         if step == 0 {
-            return initialPlace.text
+            if let value = initialPlace.text {
+                return value
+            }
+            throw error
         }
         let place = placeAtStep(step)
-        if let aPlace = place {
-            return aPlace.text
+        if let aPlace = place, value = aPlace.text {
+            return value
         }
-        return nil
+        throw error
     }
     
     private func actionsAtStep (step: Int) -> [Action]? {
