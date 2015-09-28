@@ -109,7 +109,7 @@ class Game: NSObject {
         if step == 0 {
             return initialPlace.text
         }
-        let place = placeAtStep(step-1)
+        let place = placeAtStep(step)
         if let aPlace = place {
             return aPlace.text
         }
