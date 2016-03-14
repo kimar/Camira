@@ -71,6 +71,7 @@ class Game: NSObject {
                 if let label = cell.textLabel {
                     label.text = try? textAtStep(indexPath.row)
                 }
+                print("cell text -> \(cell.textLabel!.text)")
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell", forIndexPath: indexPath) as! ActionCell
