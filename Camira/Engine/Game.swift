@@ -27,7 +27,7 @@ class Game: NSObject {
     let tableView: UITableView!
     weak var gameDelegate: GameDelegate!
     
-    var heartbeat: NSTimer!
+    var tick: NSTimer!
     
     init(title: String!, subtitle: String!, initialPlace: Place!, player: Player!, tableView: UITableView!, gameDelegate: GameDelegate) {
         self.title = title
@@ -40,11 +40,11 @@ class Game: NSObject {
     }
     
     func play () {
-        self.heartbeat = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "heartbeat:", userInfo: nil, repeats: true)
+        self.tick = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "tick:", userInfo: nil, repeats: true)
         self.tableView.reloadData()
     }
     
-    func heartbeat (sender: NSTimer) {
+    func tick (sender: NSTimer) {
         if let place = placeAtStep(currentStep()), nextPlace = place.nextPlace, delay = nextPlace.delay {
             let newDelay = Int(delay - 1)
             nextPlace.delay = newDelay
