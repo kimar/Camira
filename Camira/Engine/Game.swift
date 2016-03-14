@@ -75,7 +75,7 @@ class Game: NSObject {
             } else {
                 let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell", forIndexPath: indexPath) as! ActionCell
                 cell.place = placeAtStep(indexPath.row)
-                cell.reload = { () -> () in
+                cell.reload = {
                     if let delegate = self.gameDelegate {
                         delegate.gameWillReloadData(self)
                     }
