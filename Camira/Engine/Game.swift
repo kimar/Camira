@@ -197,23 +197,27 @@ class Game: NSObject {
                 return false
             }
         }
-        var nextStep = Int(currentStep)
-        nextStep++
         if thing is Place {
             if let actions = (thing as! Place).actions {
-                return _isPlace(step, currentStep: nextStep, thing: actions)
+                return _isPlace(step, currentStep: currentStep.next(), thing: actions)
             } else {
-                return _isPlace(step, currentStep: nextStep, thing: nextPlace((thing as! Place)))
+                return _isPlace(step, currentStep: currentStep.next(), thing: nextPlace((thing as! Place)))
             }
         }
         if let actions = thing as? [Action] {
             for index in 0...actions.count {
                 let action = actions[index]
                 if action.selected {
-                    return _isPlace(step, currentStep: nextStep, thing: action.nextPlace)
+                    return _isPlace(step, currentStep: currentStep.next(), thing: action.nextPlace)
                 }
             }
         }
-        return _isPlace(step, currentStep: nextStep, thing: thing)
+        return _isPlace(step, currentStep: currentStep.next(), thing: thing)
+    }
+}
+
+extension Int {
+    func next() -> Int {
+        return Int(self) + 1
     }
 }
