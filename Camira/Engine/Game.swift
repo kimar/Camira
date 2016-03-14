@@ -170,7 +170,7 @@ class Game: NSObject {
         var step = 0
         var nPlace = initialPlace
         while (nPlace != nil) {
-            if let nPlaceActions = nPlace?.actions {
+            if let _ = nPlace?.actions {
                 step++
             }
             nPlace = nextPlace(nPlace)
