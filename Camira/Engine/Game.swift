@@ -62,9 +62,6 @@ class Game: NSObject {
     
     func cellForRowAtIndexPath (indexPath: NSIndexPath) -> UITableViewCell {
         print("indexPath.row: \(indexPath.row) * isPlace: \(isPlace(indexPath.row))")
-        if indexPath.row == 2 {
-            
-        }
         if let isPlace = isPlace(indexPath.row) {
             if isPlace {
                 let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath) 
@@ -158,8 +155,9 @@ class Game: NSObject {
         for index in 0...step {
             if index == step {
                 if place == nil {
-                    place = placeAtStep(step-1)
+                    place = placeAtStep(step.predecessor())
                 }
+                print("place: \(place), step: \(step)")
                 return place
             }
             place = nextPlace(place)
@@ -200,25 +198,19 @@ class Game: NSObject {
         }
         if thing is Place {
             if let actions = (thing as! Place).actions {
-                return _isPlace(step, currentStep: currentStep.next(), thing: actions)
+                return _isPlace(step, currentStep: currentStep.successor(), thing: actions)
             } else {
-                return _isPlace(step, currentStep: currentStep.next(), thing: nextPlace((thing as! Place)))
+                return _isPlace(step, currentStep: currentStep.successor(), thing: nextPlace((thing as! Place)))
             }
         }
         if let actions = thing as? [Action] {
             for index in 0...actions.count {
                 let action = actions[index]
                 if action.selected {
-                    return _isPlace(step, currentStep: currentStep.next(), thing: action.nextPlace)
+                    return _isPlace(step, currentStep: currentStep.successor(), thing: action.nextPlace)
                 }
             }
         }
-        return _isPlace(step, currentStep: currentStep.next(), thing: thing)
-    }
-}
-
-extension Int {
-    func next() -> Int {
-        return Int(self) + 1
+        return _isPlace(step, currentStep: currentStep.successor(), thing: thing)
     }
 }
