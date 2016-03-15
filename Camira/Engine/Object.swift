@@ -8,11 +8,11 @@
 
 import UIKit
 
-class Object: NSObject {
+public class Object: NSObject {
     let name: String!
     var quantity = 1
     
-    init(name: String!) {
+    public init(name: String!) {
         self.name = name
         super.init()
     }

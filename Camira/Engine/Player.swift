@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Player: Object {
+public class Player: Object {
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Npc: Object {
+public class Npc: Object {
     var alive = true
     
     func kill () {

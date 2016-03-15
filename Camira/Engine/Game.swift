@@ -13,93 +13,99 @@ enum CamiraTableViewCell: String {
     static let allValues = [Place, Action]
 }
 
-protocol GameDelegate: class {
-    func gameWillReloadData (game: Game)
+public protocol GameDelegate: class {
+//    func gameWillReloadData (game: Game)
 }
 
-class Game: NSObject {
+public class Game: NSObject {
     var title: String!
     var subtitle: String!
     
     let initialPlace: Place!
     let player: Player!
     
-    let tableView: UITableView!
+//    let tableView: UITableView!
     weak var gameDelegate: GameDelegate!
     
     var tick: NSTimer!
     
-    init(title: String!, subtitle: String!, initialPlace: Place!, player: Player!, tableView: UITableView!, gameDelegate: GameDelegate) {
+    public init(title: String!, subtitle: String!, initialPlace: Place!, player: Player!, gameDelegate: GameDelegate) {
         self.title = title
         self.subtitle = subtitle
         self.initialPlace = initialPlace
         self.player = player
-        self.tableView = tableView
+//        self.tableView = tableView
         self.gameDelegate = gameDelegate
         super.init()
     }
     
-    func play () {
+    public func play () {
         self.tick = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "tick:", userInfo: nil, repeats: true)
-        self.tableView.reloadData()
+//        self.tableView.reloadData()
     }
     
-    func tick (sender: NSTimer) {
-        if let place = placeAtStep(currentStep()), nextPlace = place.nextPlace, delay = nextPlace.delay {
-            let newDelay = Int(delay.predecessor())
-            nextPlace.delay = newDelay
-            if newDelay == 0 {
-                tableView.reloadData()
-            }
-        }
-    }
+//    func tick (sender: NSTimer) {
+//        if let place = placeAtStep(currentStep()), nextPlace = place.nextPlace, delay = nextPlace.delay {
+//            let newDelay = Int(delay.predecessor())
+//            nextPlace.delay = newDelay
+//            if newDelay == 0 {
+//                tableView.reloadData()
+//            }
+//        }
+//    }
     
-    func numberOfRowsInSection (section: Int) -> Int {
-        let rows = currentStep() + 1
-        print("rows: \(rows)")
-        return rows
-    }
+//    func numberOfRowsInSection (section: Int) -> Int {
+//        let rows = currentStep() + 1
+//        print("rows: \(rows)")
+//        return rows
+//    }
+//    
+//    func cellForRowAtIndexPath (indexPath: NSIndexPath) -> UITableViewCell {
+//        print("indexPath.row: \(indexPath.row) * isPlace: \(isPlace(indexPath.row))")
+//
+//        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
+//    }
     
-    func cellForRowAtIndexPath (indexPath: NSIndexPath) -> UITableViewCell {
-        print("indexPath.row: \(indexPath.row) * isPlace: \(isPlace(indexPath.row))")
-        if let isPlace = isPlace(indexPath.row) {
+    public func debug(step: Int) {
+        if let isPlace = isPlace(step) {
             if isPlace {
-                let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath) 
-                if let label = cell.textLabel {
-                    label.text = try? textAtStep(indexPath.row)
-                }
-                print("cell text -> \(cell.textLabel!.text)")
-                return cell
+                var text = "No text found"
+//                let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath)
+//                if let label = cell.textLabel {
+                    text = try! textAtStep(step)
+//                }
+                print("cell text -> \(text)")
+//                return cell
             } else {
-                let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell", forIndexPath: indexPath) as! ActionCell
-                cell.place = placeAtStep(indexPath.row)
-                cell.reload = {
-                    if let delegate = self.gameDelegate {
-                        delegate.gameWillReloadData(self)
-                    }
-                }
-                print("actions at step \(indexPath.row) -> \(actionsAtStep(indexPath.row))")
-                if let actions = actionsAtStep(indexPath.row) {
+//                let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell", forIndexPath: indexPath) as! ActionCell
+//                cell.place = placeAtStep(step)
+//                cell.reload = {
+//                    if let delegate = self.gameDelegate {
+//                        delegate.gameWillReloadData(self)
+//                    }
+//                }
+                print("actions at step \(step) -> \(actionsAtStep(step))")
+                if let actions = actionsAtStep(step) {
                     if actions.count < 1 {
-                        cell.leftActionButton.hidden = true
+//                        cell.leftActionButton.hidden = true
+                        print("No actions found at step \(step)")
                     }
                     if actions.count < 2 {
-                        cell.rightActionButton.hidden = true
+//                        cell.rightActionButton.hidden = true
+                        print("One action found at step \(step)")
                     }
                     if let firstAction = actions.first {
-                        if (firstAction.text == "Go to dining room") {
-                            print("hi")
-                        }
-                        cell.leftActionButton.setTitle(firstAction.text, forState: .Normal)
+//                        cell.leftActionButton.setTitle(firstAction.text, forState: .Normal)
+                        print("Left action \"\(firstAction.text)\" found at step \(step)")
                     }
                     if let secondAction = actions.last {
-                        cell.rightActionButton.setTitle(secondAction.text, forState: .Normal)
+//                        cell.rightActionButton.setTitle(secondAction.text, forState: .Normal)
+                        print("Right action \"\(secondAction.text)\" found at step \(step)")
                     }
                 }
-                return cell
+//                return cell
             }
         }
-        return tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) 
     }
     
     private func textAtStep (step: Int) throws -> String {

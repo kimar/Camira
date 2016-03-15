@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActionCell: UITableViewCell {
+public class ActionCell: UITableViewCell {
     
     @IBOutlet weak var leftActionButton: UIButton!
     @IBOutlet weak var rightActionButton: UIButton!
@@ -16,12 +16,12 @@ class ActionCell: UITableViewCell {
     weak var place: Place!
     var reload: (() -> ())?
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override public func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

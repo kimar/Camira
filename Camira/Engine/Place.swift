@@ -8,20 +8,21 @@
 
 import UIKit
 
-enum CamiraPlaceAction: Int {
-    case Left = 0, Right = 1
-}
-
-class Place: NSObject {
+public class Place: NSObject {
+    
+    enum CamiraPlaceAction: Int {
+        case Left = 0, Right = 1
+    }
+    
     let text: String!
     let actions:[Action]?
     let npcs:[Npc]?
     let nextPlace: Place?
     
     var selectedAction: CamiraPlaceAction?
-    var delay: Int?
+    public var delay: Int?
     
-    init(text: String!, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
+    public init(text: String!, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
         self.text = text
         self.actions = actions
         self.npcs = npcs
