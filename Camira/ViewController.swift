@@ -34,7 +34,10 @@ class ViewController: UITableViewController, GameDelegate {
 //        game = Game(title: "Fuzzy Camira", subtitle: "An Adventure of low cunning!", initialPlace: hall, player: player, tableView: tableView, gameDelegate: self)
         
         game = Game(title: "Camira", subtitle: "A sample game", initialPlace: Place.start(), player: Player.main(), tableView: tableView, gameDelegate: self)
-        game.play()
+//        game.play()
+        
+        let place = game.placeAtStep(5)
+        
     }
 
     override func didReceiveMemoryWarning() {

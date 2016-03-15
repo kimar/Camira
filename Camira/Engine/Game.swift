@@ -46,7 +46,7 @@ class Game: NSObject {
     
     func tick (sender: NSTimer) {
         if let place = placeAtStep(currentStep()), nextPlace = place.nextPlace, delay = nextPlace.delay {
-            let newDelay = Int(delay - 1)
+            let newDelay = Int(delay.predecessor())
             nextPlace.delay = newDelay
             if newDelay == 0 {
                 tableView.reloadData()
@@ -87,6 +87,9 @@ class Game: NSObject {
                         cell.rightActionButton.hidden = true
                     }
                     if let firstAction = actions.first {
+                        if (firstAction.text == "Go to dining room") {
+                            print("hi")
+                        }
                         cell.leftActionButton.setTitle(firstAction.text, forState: .Normal)
                     }
                     if let secondAction = actions.last {
@@ -150,14 +153,14 @@ class Game: NSObject {
         return initialPlace
     }
     
-    private func placeAtStep (step: Int) -> Place? {
+    func placeAtStep (step: Int) -> Place? {
         var place: Place?
         for index in 0...step {
             if index == step {
-                if place == nil {
-                    place = placeAtStep(step.predecessor())
-                }
-                print("place: \(place), step: \(step)")
+//                if place == nil {
+//                    place = placeAtStep(step)
+//                }
+//                print("place: \(place), step: \(step)")
                 return place
             }
             place = nextPlace(place)
