@@ -38,15 +38,16 @@ class ViewController: UITableViewController {
     }
     
     func tick() {
-        objc_sync_enter(self)
-        if rowDelta() > 0 {
-            var indexPaths = [NSIndexPath]()
-            for i in 0...rowDelta().predecessor() {
-                indexPaths.append(NSIndexPath(forRow: lastNumRows + i, inSection: 0))
+        synchronized(self) { [weak self] in
+            guard let s = self else { return }
+            if s.rowDelta() > 0 {
+                var indexPaths = [NSIndexPath]()
+                for i in 0...s.rowDelta().predecessor() {
+                    indexPaths.append(NSIndexPath(forRow: s.lastNumRows + i, inSection: 0))
+                }
+                s.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
             }
-            tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         }
-        objc_sync_exit(self)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
