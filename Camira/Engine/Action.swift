@@ -9,11 +9,11 @@
 import UIKit
 
 public class Action: NSObject {
-    let text: String!
-    let nextPlace: Place!
+    let text: String
+    let nextPlace: Place
     var selected = false
     
-    public init(text: String!, nextPlace: Place!) {
+    public init(text: String, nextPlace: Place) {
         self.text = text
         self.nextPlace = nextPlace;
         super.init()

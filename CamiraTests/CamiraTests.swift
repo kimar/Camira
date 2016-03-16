@@ -10,25 +10,20 @@ import UIKit
 import XCTest
 import Camira
 
-class CamiraTests: XCTestCase, GameDelegate {
+class CamiraTests: XCTestCase {
     
-    var sut: Game?
+    var sut: Game!
     
     override func setUp() {
         super.setUp()
-
-        sut = Game(title: "Camira", subtitle: "A sample game", initialPlace: Place.start(), player: Player.main(), gameDelegate: self)
+        sut = Game(title: "Camira", subtitle: "A sample game", initialPlace: Place.start(), player: Player.main())
     }
     
     override func tearDown() {
         sut = nil
-        
         super.tearDown()
     }
     
-    func testWalkthrough() {
-        sut?.debug(5)
-    }
 }
 
 extension Action {

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EC54C8431B0C6C23001D5C35 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC54C8421B0C6C23001D5C35 /* ActionCell.swift */; };
+		07E2EEEE1C9938ED0052A0A3 /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */; };
 		EC9183251B09C94000207F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183241B09C94000207F4A /* AppDelegate.swift */; };
 		EC9183271B09C94000207F4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183261B09C94000207F4A /* ViewController.swift */; };
 		EC91832A1B09C94000207F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9183281B09C94000207F4A /* Main.storyboard */; };
@@ -33,7 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC54C8421B0C6C23001D5C35 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 		EC91831F1B09C94000207F4A /* Camira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9183231B09C94000207F4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC9183241B09C94000207F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				EC91833A1B09C94000207F4A /* CamiraTests.swift */,
+				07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */,
 				EC9183381B09C94000207F4A /* Supporting Files */,
 			);
 			path = CamiraTests;
@@ -136,7 +137,6 @@
 				EC91834B1B09C9E400207F4A /* Game.swift */,
 				EC91834D1B09CA9D00207F4A /* Action.swift */,
 				EC91834F1B09CBF800207F4A /* Npc.swift */,
-				EC54C8421B0C6C23001D5C35 /* ActionCell.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -249,7 +249,6 @@
 				EC9183481B09C97200207F4A /* Object.swift in Sources */,
 				EC91834E1B09CA9D00207F4A /* Action.swift in Sources */,
 				EC9183501B09CBF800207F4A /* Npc.swift in Sources */,
-				EC54C8431B0C6C23001D5C35 /* ActionCell.swift in Sources */,
 				EC9183251B09C94000207F4A /* AppDelegate.swift in Sources */,
 				EC91834A1B09C98900207F4A /* Place.swift in Sources */,
 			);
@@ -260,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC91833B1B09C94000207F4A /* CamiraTests.swift in Sources */,
+				07E2EEEE1C9938ED0052A0A3 /* PlaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

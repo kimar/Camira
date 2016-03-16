@@ -10,23 +10,27 @@ import UIKit
 
 public class Place: NSObject {
     
-    enum CamiraPlaceAction: Int {
-        case Left = 0, Right = 1
-    }
-    
-    let text: String!
+    let text: String
     let actions:[Action]?
     let npcs:[Npc]?
     let nextPlace: Place?
     
-    var selectedAction: CamiraPlaceAction?
+    var selectedAction: Action?
     public var delay: Int?
     
-    public init(text: String!, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
+    public init(text: String, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
         self.text = text
         self.actions = actions
         self.npcs = npcs
         self.nextPlace = nextPlace
         super.init()
+    }
+}
+
+extension Place {
+    func getNext() -> Place? {
+        return actions?.filter { action in
+            return action == selectedAction
+        }.first?.nextPlace
     }
 }

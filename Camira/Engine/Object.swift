@@ -9,10 +9,10 @@
 import UIKit
 
 public class Object: NSObject {
-    let name: String!
+    let name: String
     var quantity = 1
     
-    public init(name: String!) {
+    public init(name: String) {
         self.name = name
         super.init()
     }
