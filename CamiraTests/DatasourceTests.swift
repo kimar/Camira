@@ -38,16 +38,10 @@ class DatasourceTests: XCTestCase {
     }
     
     func test_datasource_isActionRow_0() {
-        guard let x = datasource.isActionRow(NSIndexPath(forRow: 0, inSection: 0)) else {
-            return XCTAssertTrue(false)
-        }
-        XCTAssertTrue(x)
+        XCTAssertTrue(datasource.isActionRow(NSIndexPath(forRow: 0, inSection: 0)))
     }
     
     func test_datasource_isActionRow_1() {
-        guard let x = datasource.isActionRow(NSIndexPath(forRow: 1, inSection: 0)) else {
-            return XCTAssertTrue(false)
-        }
-        XCTAssertFalse(x)
+        XCTAssertFalse(datasource.isActionRow(NSIndexPath(forRow: 1, inSection: 0)))
     }
 }

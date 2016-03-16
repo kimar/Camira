@@ -20,13 +20,17 @@ public class Datasource: NSObject {
         return game.steps()
     }
     
+    public func row(indexPath: NSIndexPath) -> Place {
+        return rows()[indexPath.row]
+    }
+    
     public func numberOfRows() -> Int {
         return rows().count
     }
     
-    public func isActionRow(indexPath: NSIndexPath) -> Bool? {
+    public func isActionRow(indexPath: NSIndexPath) -> Bool {
         guard numberOfRows().predecessor() >= indexPath.row else {
-            return nil
+            return false
         }
         
         guard let _ = rows()[indexPath.row].actions else {
@@ -34,5 +38,19 @@ public class Datasource: NSObject {
         }
         
         return true
+    }
+    
+    public func actions(indexPath: NSIndexPath) -> [Action]? {
+        guard let actions = row(indexPath).actions  else {
+            return nil
+        }
+        return actions
+    }
+    
+    public func isActiveRow(indexPath: NSIndexPath) -> Bool {
+        if numberOfRows().predecessor() == indexPath.row {
+            return true
+        }
+        return false
     }
 }
