@@ -14,6 +14,8 @@ class ViewController: UITableViewController {
     var datasource: Datasource!
     var timer: NSTimer!
     
+    var lastNumRows = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,8 +24,20 @@ class ViewController: UITableViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick:", userInfo: nil, repeats: true)
     }
     
+    func rowDelta() -> Int {
+        return datasource.numberOfRows() - lastNumRows
+    }
+    
     func tick(timer: NSTimer) {
-        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        objc_sync_enter(self)
+        if rowDelta() > 0 {
+            var indexPaths = [NSIndexPath]()
+            for i in 0...rowDelta().predecessor() {
+                indexPaths.append(NSIndexPath(forRow: lastNumRows + i, inSection: 0))
+            }
+            tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        }
+        objc_sync_exit(self)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -31,7 +45,8 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.numberOfRows()
+        lastNumRows = datasource.numberOfRows()
+        return lastNumRows
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -45,7 +60,12 @@ class ViewController: UITableViewController {
         let place = datasource.row(indexPath)
         if datasource.isActionRow(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell") as! ActionCell
-            cell.tableView = tableView
+            cell.reloadAction = { [weak self] in
+                self?.tableView.insertRowsAtIndexPaths(
+                    [NSIndexPath(forRow: indexPath.row.successor(), inSection: 0)],
+                    withRowAnimation: .Automatic
+                )
+            }
             cell.place = place
             cell.label.text = place.text
             cell.leftButton.hidden = true

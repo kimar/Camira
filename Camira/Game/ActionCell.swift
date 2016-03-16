@@ -10,8 +10,9 @@ import UIKit
 
 class ActionCell: UITableViewCell {
     
-    weak var tableView: UITableView?
     weak var place: Place?
+    
+    var reloadAction: (()-> Void)?
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var leftButton: UIButton!
@@ -23,7 +24,9 @@ class ActionCell: UITableViewCell {
         }
         
         p.selectedAction = p.actions?.first
-        reload()
+        if let a = reloadAction {
+            a()
+        }
     }
     
     @IBAction func rightButtonAction(sender: UIButton) {
@@ -31,10 +34,8 @@ class ActionCell: UITableViewCell {
             return
         }
         p.selectedAction = p.actions?.last
-        reload()
-    }
-    
-    func reload() {
-        tableView?.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
+        if let a = reloadAction {
+            a()
+        }
     }
 }
