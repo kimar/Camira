@@ -19,7 +19,7 @@ public class Game: NSObject {
     let initialPlace: Place
     let player: Player
     
-    var currentStep = 1
+    var step = 1
     
     weak var gameDelegate: GameDelegate?
         
@@ -31,6 +31,22 @@ public class Game: NSObject {
         self.gameDelegate = gameDelegate
         super.init()
     }
+}
 
+extension Game {
+    func steps() -> [Place] {
+        return steps([])
+    }
     
+    private func steps(places: [Place]) -> [Place] {
+        guard places.count > 0 else {
+            return steps([initialPlace])
+        }
+        
+        guard let place = places.last?.getNext() else {
+            return places
+        }
+        
+        return steps([places, [place]].flatMap {$0})
+    }
 }
