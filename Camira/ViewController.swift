@@ -12,12 +12,18 @@ class ViewController: UITableViewController {
     
     var game: Game!
     var datasource: Datasource!
+    var timer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         game = Game(title: "Camira - The Game", subtitle: "An sample adventure", initialPlace: Place.start(), player: Player.main())
         datasource = Datasource(game: game)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick:", userInfo: nil, repeats: true)
+    }
+    
+    func tick(timer: NSTimer) {
+        tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Automatic)
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -107,7 +113,7 @@ extension Place {
 
     static func gameOver() -> Place {
         let p = Place(text: "Really, over!", actions: nil, npcs: nil, nextPlace: nil)
-        p.delay = 2
+        p.notBefore = NSDate(timeIntervalSinceNow: 15)
         return p
     }
 }

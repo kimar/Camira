@@ -16,7 +16,7 @@ public class Place: NSObject {
     let nextPlace: Place?
     
     var selectedAction: Action?
-    public var delay: Int?
+    public var notBefore: NSDate?
     
     public init(text: String, actions: [Action]?, npcs: [Npc]?, nextPlace: Place?) {
         self.text = text
@@ -28,9 +28,17 @@ public class Place: NSObject {
 
 extension Place {
     func getNext() -> Place? {
-        return actions?.filter { action in
-            return action == selectedAction
-        }.first?.nextPlace
+        guard let nxt = nextPlace else {
+            return actions?.filter({ action in
+                return action == selectedAction
+            }).first?.nextPlace
+        }
+        if let nbf = nxt.notBefore {
+            if NSDate().compare(nbf) == .OrderedAscending {
+                return nil
+            }
+        }
+        return nxt
     }
     
     func rows() -> Int {
