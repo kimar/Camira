@@ -16,12 +16,21 @@ class ViewController: UITableViewController {
     
     var lastNumRows = 0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    @IBAction func restart(sender: UIBarButtonItem) {
+        resetGame()
+        lastNumRows = 0
+        tableView.reloadData()
+    }
+    
+    func resetGame() {
         game = Game(title: "Camira - The Game", subtitle: "An sample adventure", initialPlace: Place.start(), player: Player.main())
         datasource = Datasource(game: game)
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick:", userInfo: nil, repeats: true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        resetGame()
     }
     
     func rowDelta() -> Int {
@@ -65,6 +74,9 @@ class ViewController: UITableViewController {
                     [NSIndexPath(forRow: indexPath.row.successor(), inSection: 0)],
                     withRowAnimation: .Automatic
                 )
+                self?.tableView.reloadRowsAtIndexPaths(
+                    [NSIndexPath(forRow: indexPath.row, inSection: 0)],
+                    withRowAnimation: .None)
             }
             cell.place = place
             cell.label.text = place.text
