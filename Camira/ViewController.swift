@@ -25,7 +25,7 @@ class ViewController: UITableViewController {
     func resetGame() {
         game = Game(title: "Camira - The Game", subtitle: "An sample adventure", initialPlace: Place.start(), player: Player.main())
         datasource = Datasource(game: game)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick:", userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "tick", userInfo: nil, repeats: true)
     }
     
     override func viewDidLoad() {
@@ -37,7 +37,7 @@ class ViewController: UITableViewController {
         return datasource.numberOfRows() - lastNumRows
     }
     
-    func tick(timer: NSTimer) {
+    func tick() {
         objc_sync_enter(self)
         if rowDelta() > 0 {
             var indexPaths = [NSIndexPath]()
@@ -70,10 +70,7 @@ class ViewController: UITableViewController {
         if datasource.isActionRow(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier("ActionCell") as! ActionCell
             cell.reloadAction = { [weak self] in
-                self?.tableView.insertRowsAtIndexPaths(
-                    [NSIndexPath(forRow: indexPath.row.successor(), inSection: 0)],
-                    withRowAnimation: .Automatic
-                )
+                self?.tick()
                 self?.tableView.reloadRowsAtIndexPaths(
                     [NSIndexPath(forRow: indexPath.row, inSection: 0)],
                     withRowAnimation: .None)
@@ -126,13 +123,24 @@ extension Place {
         return Place(text: "You're standing in a giant hallway.", actions: [Action.hallwayToDiningRoom()], npcs: nil, nextPlace: nil)
     }
     
+    static func itsATrap() -> Place {
+        let p = Place(text: "It's a trap...", actions: nil, npcs: nil, nextPlace: Place.damnTrapped())
+        p.notBefore = NSDate(timeIntervalSinceNow: 10)
+        return p
+    }
+    
+    static func damnTrapped() -> Place {
+        let p = Place(text: "Damn you're trapped..it's over 😌", actions: nil, npcs: nil, nextPlace: nil)
+        p.notBefore = NSDate(timeIntervalSinceNow: 13)
+        return p
+    }
 
     static func diningRoom() -> Place {
         return Place(text: "Oh, a dining room.", actions: [Action.goToBathroom()], npcs: nil, nextPlace: nil)
     }
     
     static func diningRoomBack() -> Place {
-        return Place(text: "Oh, a dining room. Again.", actions: nil, npcs: nil, nextPlace: nil)
+        return Place(text: "Oh, a dining room. Again.", actions: nil, npcs: nil, nextPlace: Place.itsATrap())
     }
 
     static func bathroom() -> Place {
