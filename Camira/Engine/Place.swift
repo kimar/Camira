@@ -11,19 +11,18 @@ import UIKit
 public class Place: NSObject {
     
     let text: String
-    let actions:[Action]?
-    let npcs:[Npc]?
+    let actions: [Action]?
+    let npcs: [Npc]?
     let nextPlace: Place?
     
     var selectedAction: Action?
     public var delay: Int?
     
-    public init(text: String, actions:[Action]?, npcs:[Npc]?, nextPlace: Place?) {
+    public init(text: String, actions: [Action]?, npcs: [Npc]?, nextPlace: Place?) {
         self.text = text
         self.actions = actions
         self.npcs = npcs
         self.nextPlace = nextPlace
-        super.init()
     }
 }
 
@@ -32,5 +31,12 @@ extension Place {
         return actions?.filter { action in
             return action == selectedAction
         }.first?.nextPlace
+    }
+    
+    func rows() -> Int {
+        guard let actions = actions else {
+            return 1
+        }
+        return actions.count
     }
 }

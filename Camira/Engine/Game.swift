@@ -29,7 +29,6 @@ public class Game: NSObject {
         self.initialPlace = initialPlace
         self.player = player
         self.gameDelegate = gameDelegate
-        super.init()
     }
 }
 

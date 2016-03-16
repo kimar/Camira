@@ -16,6 +16,5 @@ public class Action: NSObject {
     public init(text: String, nextPlace: Place) {
         self.text = text
         self.nextPlace = nextPlace;
-        super.init()
     }
 }

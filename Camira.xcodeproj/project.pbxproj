@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		07E2EEEE1C9938ED0052A0A3 /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */; };
 		07E2EEF01C994AA40052A0A3 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2EEEF1C994AA40052A0A3 /* GameTests.swift */; };
+		07E2EEF21C994C9D0052A0A3 /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2EEF11C994C9D0052A0A3 /* Datasource.swift */; };
+		07E2EEF41C994E1F0052A0A3 /* DatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E2EEF31C994E1F0052A0A3 /* DatasourceTests.swift */; };
 		EC9183251B09C94000207F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183241B09C94000207F4A /* AppDelegate.swift */; };
 		EC9183271B09C94000207F4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9183261B09C94000207F4A /* ViewController.swift */; };
 		EC91832A1B09C94000207F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9183281B09C94000207F4A /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 		07E2EEEF1C994AA40052A0A3 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		07E2EEF11C994C9D0052A0A3 /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		07E2EEF31C994E1F0052A0A3 /* DatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceTests.swift; sourceTree = "<group>"; };
 		EC91831F1B09C94000207F4A /* Camira.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camira.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC9183231B09C94000207F4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC9183241B09C94000207F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				EC91833A1B09C94000207F4A /* CamiraTests.swift */,
 				07E2EEED1C9938ED0052A0A3 /* PlaceTests.swift */,
 				07E2EEEF1C994AA40052A0A3 /* GameTests.swift */,
+				07E2EEF31C994E1F0052A0A3 /* DatasourceTests.swift */,
 				EC9183381B09C94000207F4A /* Supporting Files */,
 			);
 			path = CamiraTests;
@@ -140,6 +145,7 @@
 				EC91834B1B09C9E400207F4A /* Game.swift */,
 				EC91834D1B09CA9D00207F4A /* Action.swift */,
 				EC91834F1B09CBF800207F4A /* Npc.swift */,
+				07E2EEF11C994C9D0052A0A3 /* Datasource.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 				EC9183271B09C94000207F4A /* ViewController.swift in Sources */,
 				EC91834C1B09C9E400207F4A /* Game.swift in Sources */,
 				EC9183461B09C96900207F4A /* Player.swift in Sources */,
+				07E2EEF21C994C9D0052A0A3 /* Datasource.swift in Sources */,
 				EC9183481B09C97200207F4A /* Object.swift in Sources */,
 				EC91834E1B09CA9D00207F4A /* Action.swift in Sources */,
 				EC9183501B09CBF800207F4A /* Npc.swift in Sources */,
@@ -263,6 +270,7 @@
 			files = (
 				EC91833B1B09C94000207F4A /* CamiraTests.swift in Sources */,
 				07E2EEF01C994AA40052A0A3 /* GameTests.swift in Sources */,
+				07E2EEF41C994E1F0052A0A3 /* DatasourceTests.swift in Sources */,
 				07E2EEEE1C9938ED0052A0A3 /* PlaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

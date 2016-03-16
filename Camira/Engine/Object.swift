@@ -14,6 +14,5 @@ public class Object: NSObject {
     
     public init(name: String) {
         self.name = name
-        super.init()
     }
 }
