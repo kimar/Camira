@@ -16,7 +16,7 @@ class CamiraTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = Game(title: "Camira", subtitle: "A sample game", initialPlace: Place.start(), player: Player.main())
+        sut = Game(title: "Camira", subtitle: "A sample game", initial: Scene.start(), player: Player.main())
     }
     
     override func tearDown() {
@@ -28,39 +28,37 @@ class CamiraTests: XCTestCase {
 
 extension Action {
     static func hallwayToDiningRoom() -> Action {
-        return Action(text: "Go to dining room", nextPlace: Place.diningRoom())
+        return Action(text: "Go to dining room", nextScene: Scene.diningRoom())
     }
     
     static func escapeThroughWindow() -> Action {
-        return Action(text: "Escape through window", nextPlace: Place.outside())
+        return Action(text: "Escape through window", nextScene: Scene.outside())
     }
     
     static func goToBathroom() -> Action {
-        return Action(text: "Go to bathroom", nextPlace: Place.bathroom())
+        return Action(text: "Go to bathroom", nextScene: Scene.bathroom())
     }
 }
 
-extension Place {
-    static func start() -> Place {
-        return Place(text: "You're standing in a giant hallway.", actions: [Action.hallwayToDiningRoom()], npcs: nil, nextPlace: nil)
+extension Scene {
+    static func start() -> Scene {
+        return Scene(text: "You're standing in a giant hallway.", actions: [Action.hallwayToDiningRoom()], npcs: nil, nextScene: nil)
     }
     
-    static func diningRoom() -> Place {
-        return Place(text: "Oh, a dining room.", actions: [Action.goToBathroom()], npcs: nil, nextPlace: nil)
+    static func diningRoom() -> Scene {
+        return Scene(text: "Oh, a dining room.", actions: [Action.goToBathroom()], npcs: nil, nextScene: nil)
     }
     
-    static func bathroom() -> Place {
-        return Place(text: "Smelly old bathroom", actions: [Action.escapeThroughWindow()], npcs: nil, nextPlace: nil)
+    static func bathroom() -> Scene {
+        return Scene(text: "Smelly old bathroom", actions: [Action.escapeThroughWindow()], npcs: nil, nextScene: nil)
     }
     
-    static func outside() -> Place {
-        return Place(text: "You're outside, it's over now!", actions: nil, npcs: nil, nextPlace: Place.gameOver())
+    static func outside() -> Scene {
+        return Scene(text: "You're outside, it's over now!", actions: nil, npcs: nil, nextScene: Scene.gameOver())
     }
     
-    static func gameOver() -> Place {
-        let p = Place(text: "Really, over!", actions: nil, npcs: nil, nextPlace: nil)
-        p.delay = 2
-        return p
+    static func gameOver() -> Scene {
+        return Scene(text: "Really, over!", actions: nil, npcs: nil, nextScene: nil)
     }
 }
 

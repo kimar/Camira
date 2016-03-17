@@ -11,7 +11,7 @@ import Camira
 
 class PlaceCell: UITableViewCell {
     
-    var place: Place?
+    var scene: Scene?
     
     @IBOutlet weak var label: UILabel!
 }

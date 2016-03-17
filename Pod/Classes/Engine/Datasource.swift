@@ -16,11 +16,11 @@ public class Datasource: NSObject {
         self.game = game
     }
     
-    public func rows() -> [Place] {
+    public func rows() -> [Scene] {
         return game.steps()
     }
     
-    public func row(indexPath: NSIndexPath) -> Place {
+    public func row(indexPath: NSIndexPath) -> Scene {
         return rows()[indexPath.row]
     }
     

@@ -10,13 +10,13 @@ import UIKit
 
 public class Action: NSObject {
 
-    let nextPlace: Place
+    let nextScene: Scene
 
     public let text: String
     public var selected = false
 
-    public init(text: String, nextPlace: Place) {
+    public init(text: String, nextScene: Scene) {
         self.text = text
-        self.nextPlace = nextPlace;
+        self.nextScene = nextScene;
     }
 }

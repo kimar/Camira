@@ -16,36 +16,36 @@ public class Game: NSObject {
     let title: String
     let subtitle: String
     
-    let initialPlace: Place
+    let initial: Scene
     let player: Player
     
     var step = 1
     
-    weak var gameDelegate: GameDelegate?
+    weak var delegate: GameDelegate?
         
-    public init(title: String, subtitle: String, initialPlace: Place, player: Player, gameDelegate: GameDelegate? = nil) {
+    public init(title: String, subtitle: String, initial: Scene, player: Player, delegate: GameDelegate? = nil) {
         self.title = title
         self.subtitle = subtitle
-        self.initialPlace = initialPlace
+        self.initial = initial
         self.player = player
-        self.gameDelegate = gameDelegate
+        self.delegate = delegate
     }
 }
 
 extension Game {
-    func steps() -> [Place] {
+    func steps() -> [Scene] {
         return steps([])
     }
     
-    private func steps(places: [Place]) -> [Place] {
-        guard places.count > 0 else {
-            return steps([initialPlace])
+    private func steps(scenes: [Scene]) -> [Scene] {
+        guard scenes.count > 0 else {
+            return steps([initial])
         }
         
-        guard let place = places.last?.getNext() else {
-            return places
+        guard let scene = scenes.last?.getNext() else {
+            return scenes
         }
         
-        return steps([places, [place]].flatMap {$0})
+        return steps([scenes, [scene]].flatMap {$0})
     }
 }

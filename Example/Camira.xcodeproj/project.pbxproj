@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		073525E61C9A754A00E53BF4 /* CamiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525E21C9A754A00E53BF4 /* CamiraTests.swift */; };
+		073525E71C9A754A00E53BF4 /* DatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525E31C9A754A00E53BF4 /* DatasourceTests.swift */; };
+		073525E81C9A754A00E53BF4 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525E41C9A754A00E53BF4 /* GameTests.swift */; };
+		073525E91C9A754A00E53BF4 /* SceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525E51C9A754A00E53BF4 /* SceneTests.swift */; };
 		074E4C401C9A7126003DF370 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E4C3E1C9A7126003DF370 /* ActionCell.swift */; };
 		074E4C411C9A7126003DF370 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074E4C3F1C9A7126003DF370 /* PlaceCell.swift */; };
 		1FD3D967F1E425E9C6990150 /* Pods_Camira_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B7DB2D2BDB4B5722A627DCE /* Pods_Camira_Example.framework */; };
@@ -15,7 +19,6 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		A00AF2FFD09ACF6DF9008D2F /* Pods_Camira_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2489415E0FA5E0EEFE7B3F6F /* Pods_Camira_Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,13 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		073525E11C9A73B000E53BF4 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LICENSE.md; path = ../LICENSE.md; sourceTree = "<group>"; };
+		073525E21C9A754A00E53BF4 /* CamiraTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CamiraTests.swift; sourceTree = "<group>"; };
+		073525E31C9A754A00E53BF4 /* DatasourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatasourceTests.swift; sourceTree = "<group>"; };
+		073525E41C9A754A00E53BF4 /* GameTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		073525E51C9A754A00E53BF4 /* SceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneTests.swift; sourceTree = "<group>"; };
 		074E4C3E1C9A7126003DF370 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		074E4C3F1C9A7126003DF370 /* PlaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		0B7DB2D2BDB4B5722A627DCE /* Pods_Camira_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Camira_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E97179D02A7B5A670DB9BC5 /* Pods-Camira_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camira_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camira_Tests/Pods-Camira_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2489415E0FA5E0EEFE7B3F6F /* Pods_Camira_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Camira_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD7DB5B3AEE67A43C5342BA /* Pods-Camira_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camira_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Camira_Example/Pods-Camira_Example.release.xcconfig"; sourceTree = "<group>"; };
-		5C0A662A1FE91BBE97E8D825 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Camira_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Camira_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +53,6 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Camira_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Camira_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9AB84C6FBD1F467C8DAA1ED7 /* Pods-Camira_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camira_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Camira_Example/Pods-Camira_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CAF8F0076C0FA3DEDC6D665E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F37312CD5388E11C4B1EF898 /* Pods-Camira_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Camira_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Camira_Tests/Pods-Camira_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,7 +144,10 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				073525E21C9A754A00E53BF4 /* CamiraTests.swift */,
+				073525E31C9A754A00E53BF4 /* DatasourceTests.swift */,
+				073525E41C9A754A00E53BF4 /* GameTests.swift */,
+				073525E51C9A754A00E53BF4 /* SceneTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -157,7 +166,7 @@
 			children = (
 				FB313F03E656117E68FF3E11 /* Camira.podspec */,
 				CAF8F0076C0FA3DEDC6D665E /* README.md */,
-				5C0A662A1FE91BBE97E8D825 /* LICENSE */,
+				073525E11C9A73B000E53BF4 /* LICENSE.md */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -384,7 +393,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				073525E61C9A754A00E53BF4 /* CamiraTests.swift in Sources */,
+				073525E91C9A754A00E53BF4 /* SceneTests.swift in Sources */,
+				073525E71C9A754A00E53BF4 /* DatasourceTests.swift in Sources */,
+				073525E81C9A754A00E53BF4 /* GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

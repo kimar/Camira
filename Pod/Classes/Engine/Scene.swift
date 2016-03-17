@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class Place: NSObject {
+public class Scene: NSObject {
     
     let npcs: [Npc]?
-    let nextPlace: Place?
+    let nextScene: Scene?
     
     public let text: String
     public let actions: [Action]?
@@ -19,20 +19,20 @@ public class Place: NSObject {
     public var selectedAction: Action?
     public var notBefore: NSDate?
     
-    public init(text: String, actions: [Action]?, npcs: [Npc]?, nextPlace: Place?) {
+    public init(text: String, actions: [Action]?, npcs: [Npc]?, nextScene: Scene?) {
         self.text = text
         self.actions = actions
         self.npcs = npcs
-        self.nextPlace = nextPlace
+        self.nextScene = nextScene
     }
 }
 
-extension Place {
-    func getNext() -> Place? {
-        guard let nxt = nextPlace else {
+extension Scene {
+    public func getNext() -> Scene? {
+        guard let nxt = nextScene else {
             return actions?.filter({ action in
                 return action == selectedAction
-            }).first?.nextPlace
+            }).first?.nextScene
         }
         if let nbf = nxt.notBefore {
             if NSDate().compare(nbf) == .OrderedAscending {
@@ -42,18 +42,10 @@ extension Place {
         return nxt
     }
     
-    func rows() -> Int {
+    public func rows() -> Int {
         guard let actions = actions else {
             return 1
         }
         return actions.count
     }
-    
-//    public func selectAction(action: Action) -> Bool {
-//        guard let _ = selectedAction else {
-//            selectedAction = action
-//            return true
-//        }
-//        return false
-//    }
 }

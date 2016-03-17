@@ -11,7 +11,7 @@ import Camira
 
 class ActionCell: UITableViewCell {
     
-    weak var place: Place?
+    weak var scene: Scene?
     
     var reloadAction: (()-> Void)?
     
@@ -20,21 +20,21 @@ class ActionCell: UITableViewCell {
     @IBOutlet weak var rightButton: UIButton!
         
     @IBAction func leftButtonAction(sender: UIButton) {
-        guard let p = place else {
+        guard let s = scene else {
             return
         }
         
-        p.selectedAction = p.actions?.first
+        s.selectedAction = s.actions?.first
         if let a = reloadAction {
             a()
         }
     }
     
     @IBAction func rightButtonAction(sender: UIButton) {
-        guard let p = place else {
+        guard let s = scene else {
             return
         }
-        p.selectedAction = p.actions?.last
+        s.selectedAction = s.actions?.last
         if let a = reloadAction {
             a()
         }

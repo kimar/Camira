@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Camira
+import Camira
 
 class DatasourceTests: XCTestCase {
     
@@ -16,14 +16,14 @@ class DatasourceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        let place2 = Place(text: "TestPlace2", actions: nil, npcs: nil, nextPlace: nil)
-        let action = Action(text: "TestAction", nextPlace: place2)
+        let scene2 = Scene(text: "TestPlace2", actions: nil, npcs: nil, nextScene: nil)
+        let action = Action(text: "TestAction", nextScene: scene2)
         
-        let place = Place(text: "TestPlace", actions: [action], npcs: nil, nextPlace: nil)
-        place.selectedAction = action
+        let scene = Scene(text: "TestPlace", actions: [action], npcs: nil, nextScene: nil)
+        scene.selectedAction = action
         
         let player = Player(name: "TestPlayer")
-        let game = Game(title: "TestGame", subtitle: "TestGame", initialPlace: place, player: player)
+        let game = Game(title: "TestGame", subtitle: "TestGame", initial: scene, player: player)
         
         datasource = Datasource(game: game)
     }
