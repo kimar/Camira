@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Scene: NSObject {
+public class Scene: Object, Mapable {
     
     let npcs: [Npc]?
     let nextScene: Scene?
@@ -28,7 +28,7 @@ public class Scene: NSObject {
 }
 
 extension Scene {
-    public func getNext() -> Scene? {
+    func getNext() -> Scene? {
         guard let nxt = nextScene else {
             return actions?.filter({ action in
                 return action == selectedAction
@@ -42,10 +42,15 @@ extension Scene {
         return nxt
     }
     
-    public func rows() -> Int {
+    func rows() -> Int {
         guard let actions = actions else {
             return 1
         }
         return actions.count
+    }
+    
+    // MARK: - Mapable
+    func map() -> [String : AnyObject] {
+        return ["text": text]
     }
 }

@@ -13,6 +13,8 @@
 		02DF5BD2281BA10105A447F95FCF8CF3 /* BeLogical.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51F90687F1FD2CD6E2CDF0E3F62C27 /* BeLogical.swift */; };
 		0492354DA7EF0C9068F7B4E8F74001B0 /* FailureMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E97EFA39EE5B8E0791218121044BD /* FailureMessage.swift */; };
 		05471B4F2E4B849C593EA81840D2A53F /* Pods-Camira_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E9BFA85422534B37AFDD180557454125 /* Pods-Camira_Example-dummy.m */; };
+		073525EC1C9A7B1300E53BF4 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525EB1C9A7B1300E53BF4 /* Persistable.swift */; };
+		073525EE1C9A7BF900E53BF4 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073525ED1C9A7BF900E53BF4 /* JSON.swift */; };
 		0A6E71555F55082003A3DB2B03CA85D2 /* AsyncMatcherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130A59DDB32BBDCFB4ABB11FA368C7F8 /* AsyncMatcherWrapper.swift */; };
 		0F49254A4C560DD4696936F6080756DC /* Nimble-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F4A7503AAF3BA8144C1103305BE6E6A9 /* Nimble-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10BC8725449633AB777E5147A3213037 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F567A0F84D52EF356BEDCB9F4C9AE7 /* Foundation.framework */; };
@@ -205,6 +207,8 @@
 		011394233A7239143D706983E89EE6E5 /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		0411D20370700F56223758955E1BDD0B /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
 		049E62DBC02E79C4174E7BE9678BA37E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073525EB1C9A7B1300E53BF4 /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		073525ED1C9A7BF900E53BF4 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		08ADD3D12D8EF1E0F43D8C6BF8CCF7AD /* Action.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		0D7D938089484EB492A8626AA8E5C528 /* SuiteHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SuiteHooks.swift; path = Quick/Hooks/SuiteHooks.swift; sourceTree = "<group>"; };
 		0D815E4D0509F64977CC911FFE53B202 /* DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DSL.h; path = Nimble/objc/DSL.h; sourceTree = "<group>"; };
@@ -434,6 +438,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		073525EA1C9A7B0000E53BF4 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				073525EB1C9A7B1300E53BF4 /* Persistable.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 		0A0D309BA8B346959EBCF13A1E209658 /* Quick */ = {
 			isa = PBXGroup;
 			children = (
@@ -692,6 +704,8 @@
 			isa = PBXGroup;
 			children = (
 				1EAFCBE777C19FC4D6116C8B15E8E879 /* Semaphore.swift */,
+				073525ED1C9A7BF900E53BF4 /* JSON.swift */,
+				073525EA1C9A7B0000E53BF4 /* Persistence */,
 				46E6508BD65307129AF3D6B4C2153D67 /* Engine */,
 			);
 			path = Classes;
@@ -1141,9 +1155,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				78F73F7A10F5DA6B3BC21B655CC47A82 /* Action.swift in Sources */,
+				073525EE1C9A7BF900E53BF4 /* JSON.swift in Sources */,
 				1AF8783A3B2C415F27E25682A48B6053 /* Camira-dummy.m in Sources */,
 				56ACE798966FA3B9EDE6CB5267FEEF9D /* Datasource.swift in Sources */,
 				5AE2A444FE7D06F853758232C7182593 /* Game.swift in Sources */,
+				073525EC1C9A7B1300E53BF4 /* Persistable.swift in Sources */,
 				E290AA5741232105A59300F15B4DFD0C /* Npc.swift in Sources */,
 				1CF78DDA7A870AA0668B996179A3B1E7 /* Object.swift in Sources */,
 				D9AB8C2D8B5C33ADC4CFCEE4758140AB /* Scene.swift in Sources */,

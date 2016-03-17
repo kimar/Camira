@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Camira
+@testable import Camira
 
 class PlaceTests: XCTestCase {
     

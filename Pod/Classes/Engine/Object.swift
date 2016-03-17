@@ -9,10 +9,5 @@
 import UIKit
 
 public class Object: NSObject {
-    let name: String
-    var quantity = 1
-    
-    public init(name: String) {
-        self.name = name
-    }
+    let id = NSUUID().UUIDString
 }

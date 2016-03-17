@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-import Camira
+@testable import Camira
 
 class CamiraTests: XCTestCase {
     

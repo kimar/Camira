@@ -12,7 +12,7 @@ import UIKit
     optional func gameWillReloadData (game: Game)
 }
 
-public class Game: NSObject {
+public class Game: Object, Persistable, Mapable {
     let title: String
     let subtitle: String
     
@@ -29,6 +29,29 @@ public class Game: NSObject {
         self.initial = initial
         self.player = player
         self.delegate = delegate
+    }
+    
+    
+    // MARK: - Persistable
+    func persist() -> String? {
+        return JSON(
+            game: self
+            ).serialize()
+    }
+    
+    func restore(persisted: String) {
+        
+    }
+    
+    // MARK: - Mapable
+    func map() -> [String : AnyObject] {
+        return [
+            "uuid": id,
+            "title": title,
+            "subtitle": subtitle,
+            "initial": initial,
+            "player": player
+        ]
     }
 }
 

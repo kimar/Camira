@@ -8,6 +8,16 @@
 
 import UIKit
 
-public class Player: Object {
+public class Player: Object, Mapable {
+
+    let name: String
     
+    public init(name: String) {
+        self.name = name
+    }
+    
+    // MARK: - Mapable
+    func map() -> [String : AnyObject] {
+        return ["name": name]
+    }
 }
