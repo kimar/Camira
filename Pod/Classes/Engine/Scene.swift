@@ -51,6 +51,9 @@ extension Scene {
     
     // MARK: - Mapable
     func map() -> [String : AnyObject] {
-        return ["text": text]
+        return [
+            "uuid": id,
+            "text": text
+        ]
     }
 }
