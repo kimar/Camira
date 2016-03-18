@@ -36,7 +36,7 @@ public class Game: Object, Persistable, Mapable {
     func persist() -> String? {
         return JSON(
             game: self
-            ).serialize()
+        ).serialize()
     }
     
     func restore(persisted: String) {
