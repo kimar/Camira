@@ -26,8 +26,11 @@ extension JSON {
     }
     
     private func finalize(mapped: [Mapped]) -> String? {
-        print("Got Mapped -> \(mapped)")
-        fatalError("Not yet implemented")
+        print("Mapped -> \(mapped)")
+        return NSString(
+            data: try! NSJSONSerialization.dataWithJSONObject(mapped, options: NSJSONWritingOptions(rawValue: 0)),
+            encoding: NSUTF8StringEncoding
+        ) as? String
     }
     
     private func serialize(parent: Mapable?, object: Mapable, var mappeds: [Mapped] = [Mapped]()) -> [Mapped] {
@@ -36,12 +39,12 @@ extension JSON {
         mapped["_class"] = String(object.dynamicType)
         
         if let p = parent {
-            mapped["_parent"] = p.map()["uuid"]
+            mapped["_parent"] = String(p.map()["uuid"])
         }
         
         object.map().forEach { key, value in
             if !(value.self is Mapable) {
-                mapped[key] = value
+                mapped[key] = String(value)
             }
         }
         
@@ -51,8 +54,12 @@ extension JSON {
         
         mappeds.append(mapped)
         
-        for mapable in mapables {
-            return serialize(object, object: mapable.1 as! Mapable, mappeds: mappeds)
+        mapables.forEach { key, value in
+            let s = serialize(object, object: value as! Mapable, mappeds: mappeds)
+            print("obj -> \(s)")
+            mappeds.appendContentsOf(
+                [s.last!]
+            )
         }
         
         return mappeds
