@@ -1,9 +1,6 @@
 # Camira
 
 [![CI Status](http://img.shields.io/travis/Marcus Kida/Camira.svg?style=flat)](https://travis-ci.org/Marcus Kida/Camira)
-[![Version](https://img.shields.io/cocoapods/v/Camira.svg?style=flat)](http://cocoapods.org/pods/Camira)
-[![License](https://img.shields.io/cocoapods/l/Camira.svg?style=flat)](http://cocoapods.org/pods/Camira)
-[![Platform](https://img.shields.io/cocoapods/p/Camira.svg?style=flat)](http://cocoapods.org/pods/Camira)
 
 #### An iOS text adventure game engine, inspired by Lifeline and co.
 
@@ -11,17 +8,10 @@ This will once and eventually evolve into a nice and nifty text based game engin
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+Build the `Camira` framework target and empty it into your app. You might want to use Carthage to resolve your dependency:
 
-## Requirements
-
-## Installation
-
-Camira is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "Camira"
+```
+github "kimar/Camira"
 ```
 
 ## Author

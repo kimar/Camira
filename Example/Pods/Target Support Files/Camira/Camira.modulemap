@@ -1,6 +1,0 @@
-framework module Camira {
-  umbrella header "Camira-umbrella.h"
-
-  export *
-  module * { export * }
-}
