@@ -21,16 +21,9 @@ class CamiraTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPersistency() {
+        let game = Game(title: "Title", subtitle: "Subtitle", initial: Scene.start(), player: Player.main())
+        let persisted = game.persist()
+        print("persisted: \(persisted!)")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

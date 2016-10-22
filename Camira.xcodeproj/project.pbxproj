@@ -21,6 +21,7 @@
 		078490661DBB08430046801A /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784905A1DBB08430046801A /* JSON.swift */; };
 		078490671DBB08430046801A /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784905C1DBB08430046801A /* Persistable.swift */; };
 		078490681DBB08430046801A /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784905D1DBB08430046801A /* Semaphore.swift */; };
+		0784906A1DBB0B860046801A /* TestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078490691DBB0B860046801A /* TestGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0784905A1DBB08430046801A /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		0784905C1DBB08430046801A /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		0784905D1DBB08430046801A /* Semaphore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semaphore.swift; sourceTree = "<group>"; };
+		078490691DBB0B860046801A /* TestGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		078490441DBB08260046801A /* CamiraTests */ = {
 			isa = PBXGroup;
 			children = (
+				078490691DBB0B860046801A /* TestGame.swift */,
 				078490451DBB08260046801A /* CamiraTests.swift */,
 				078490471DBB08260046801A /* Info.plist */,
 			);
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				078490461DBB08260046801A /* CamiraTests.swift in Sources */,
+				0784906A1DBB0B860046801A /* TestGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +470,7 @@
 				0784904D1DBB08260046801A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0784904E1DBB08260046801A /* Build configuration list for PBXNativeTarget "CamiraTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +479,7 @@
 				078490501DBB08260046801A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

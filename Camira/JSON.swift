@@ -18,7 +18,7 @@ struct JSON {
 extension JSON {
     func serialize() -> String? {
         guard let f = finalize(mapped: serialize(parent: nil, object: game)) else { return nil }
-        guard let data = try? JSONSerialization.data(withJSONObject: f,
+        guard let data = try? JSONSerialization.data(withJSONObject: ["state": f],
             options: JSONSerialization.WritingOptions(rawValue: 0)) else {
                 return nil
         }
@@ -37,10 +37,10 @@ extension JSON {
         var mutableMappeds = mappeds
         
         var mapped = Mapped()
-        mapped["_class"] = "\(object.self)"
+        mapped["_class"] = "\(type(of: object.self))"
         
-        if let p = parent {
-            mapped["_parent"] = "\(p.map()["uuid"])"
+        if let p = parent, let s = p.map()["uuid"] as? String {
+            mapped["_parent"] = s
         }
         
         object.map().forEach { key, value in
@@ -58,11 +58,12 @@ extension JSON {
         mapables.forEach { key, value in
             let s = serialize(parent: object, object: value as! Mapable, mappeds: mappeds)
             print("obj -> \(s)")
+            guard let last = s.last else { return }
             mutableMappeds.append(contentsOf:
-                [s.last!]
+                [last]
             )
         }
         
-        return mappeds
+        return mutableMappeds
     }
 }
