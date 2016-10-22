@@ -23,7 +23,9 @@ class CamiraTests: XCTestCase {
     
     func testPersistency() {
         let game = Game(title: "Title", subtitle: "Subtitle", initial: Scene.start(), player: Player.main())
-        let persisted = game.persist()
-        print("persisted: \(persisted!)")
+        let serialized = game.toJSON()
+        let json = try? JSONSerialization.data(withJSONObject: ["game": serialized!], options: JSONSerialization.WritingOptions.prettyPrinted)
+        let jsonString = String(data: json!, encoding: .utf8)
+        print("persisted: \(jsonString!)")
     }
 }

@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Gloss
 
-public class Npc: Object {
+public class Npc: Glossy {
     var alive = true
     
     func kill () {
@@ -17,5 +18,17 @@ public class Npc: Object {
     
     func revive () {
         self.alive = true
+    }
+    
+    public required init?(json: JSON) {
+        if let alive: Bool = "alive" <~~ json {
+            self.alive = alive
+        }
+    }
+    
+    public func toJSON() -> JSON? {
+        return jsonify([
+            "alive" ~~> alive
+        ])
     }
 }

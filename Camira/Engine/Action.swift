@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import Gloss
 
-public class Action: NSObject {
+public class Action: Glossy {
 
     let nextScene: Scene
 
@@ -18,5 +19,22 @@ public class Action: NSObject {
     public init(text: String, nextScene: Scene) {
         self.text = text
         self.nextScene = nextScene;
+    }
+    
+    public required init?(json: JSON) {
+        guard let nextScene: Scene = "nextScene" <~~ json else { return nil}
+        guard let text: String = "text" <~~ json else { return nil }
+        self.nextScene = nextScene
+        self.text = text
+        if let selected: Bool = "selected" <~~ json {
+            self.selected = selected
+        }
+    }
+    
+    public func toJSON() -> JSON? {
+        return jsonify([
+            "text" ~~> text,
+            "selected" ~~> selected
+        ])
     }
 }

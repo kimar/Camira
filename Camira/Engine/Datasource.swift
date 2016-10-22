@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class Datasource: NSObject {
+public class Datasource {
     
     let game: Game
     
@@ -20,7 +20,7 @@ public class Datasource: NSObject {
         return game.steps()
     }
     
-    public func row(indexPath: IndexPath) -> Scene {
+    public func row(_ indexPath: IndexPath) -> Scene {
         return rows()[indexPath.row]
     }
     
@@ -28,7 +28,7 @@ public class Datasource: NSObject {
         return rows().count
     }
     
-    public func isActionRow(indexPath: IndexPath) -> Bool {
+    public func isActionRow(_ indexPath: IndexPath) -> Bool {
         guard (numberOfRows() - 1) >= indexPath.row else {
             return false
         }
@@ -40,14 +40,14 @@ public class Datasource: NSObject {
         return true
     }
     
-    public func actions(indexPath: IndexPath) -> [Action]? {
-        guard let actions = row(indexPath: indexPath).actions  else {
+    public func actions(_ indexPath: IndexPath) -> [Action]? {
+        guard let actions = row(indexPath).actions  else {
             return nil
         }
         return actions
     }
     
-    public func isActiveRow(indexPath: IndexPath) -> Bool {
+    public func isActiveRow(_ indexPath: IndexPath) -> Bool {
         if (numberOfRows() - 1) == indexPath.row {
             return true
         }

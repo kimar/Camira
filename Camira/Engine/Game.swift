@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import Gloss
 
 public protocol GameDelegate {
     func gameWillReloadData (game: Game)
 }
 
-public class Game: Object, Persistable, Mapable {
+public class Game: Glossy {
     let title: String
     let subtitle: String
     
@@ -31,27 +32,26 @@ public class Game: Object, Persistable, Mapable {
         self.delegate = delegate
     }
     
-    
-    // MARK: - Persistable
-    func persist() -> String? {
-        return JSON(
-            game: self
-        ).serialize()
+    public required init?(json: JSON) {
+        guard
+            let title: String = "title" <~~ json,
+            let subtitle: String = "subtitle" <~~ json,
+            let initial: Scene = "initial" <~~ json,
+            let player: Player = "player" <~~ json
+            else { return nil }
+        self.title = title
+        self.subtitle = subtitle
+        self.initial = initial
+        self.player = player
     }
     
-    func restore(persisted: String) {
-        
-    }
-    
-    // MARK: - Mapable
-    func map() -> [String : Any] {
-        return [
-            "uuid": id,
-            "title": title,
-            "subtitle": subtitle,
-            "initial": initial,
-            "player": player
-        ]
+    public func toJSON() -> JSON? {
+        return jsonify([
+            "title" ~~> title,
+            "subtitle" ~~> subtitle,
+            "initial" ~~> initial,
+            "player" ~~> player
+        ])
     }
 }
 
