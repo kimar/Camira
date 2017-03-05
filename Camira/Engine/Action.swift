@@ -33,6 +33,7 @@ public class Action: Glossy {
     
     public func toJSON() -> JSON? {
         return jsonify([
+            "nextScene" ~~> nextScene,
             "text" ~~> text,
             "selected" ~~> selected
         ])
