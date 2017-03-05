@@ -18,7 +18,7 @@ class ViewController: UITableViewController {
     
     var lastNumRows = 0
     
-    var stored: (JSON, Int)?
+    var stored: (json: JSON, step: Int)?
     
     @IBAction func restart(sender: UIBarButtonItem) {
         resetGame()
@@ -56,10 +56,10 @@ class ViewController: UITableViewController {
     
     @IBAction func persistAndRestore() {
         if let storedGame = stored {
-            guard let g = Game(json: storedGame.0) else { return assertionFailure() }
+            guard let g = Game(storedGame: storedGame) else { return assertionFailure() }
             game = g
             datasource = Datasource(game: game)
-            lastNumRows = storedGame.1
+//            lastNumRows = storedGame.step
             return tableView.reloadData()
         }
         stored = (game.toJSON()!, lastNumRows)

@@ -9,6 +9,8 @@
 import Foundation
 import Gloss
 
+public typealias StoredGame = (json: JSON, step: Int)
+
 public protocol GameDelegate {
     func gameWillReloadData (game: Game)
 }
@@ -30,6 +32,11 @@ public class Game: Glossy {
         self.initial = initial
         self.player = player
         self.delegate = delegate
+    }
+    
+    public convenience init?(storedGame: StoredGame) {
+        self.init(json: storedGame.json)
+        step = storedGame.step
     }
     
     public required init?(json: JSON) {
