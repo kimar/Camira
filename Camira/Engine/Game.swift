@@ -15,7 +15,7 @@ public protocol GameDelegate {
     func gameWillReloadData (game: Game)
 }
 
-public class Game: Glossy {
+public class Game: Object, Glossy {
     let title: String
     let subtitle: String
     
@@ -41,11 +41,13 @@ public class Game: Glossy {
     
     public required init?(json: JSON) {
         guard
+            let id: String = "id" <~~ json,
             let title: String = "title" <~~ json,
             let subtitle: String = "subtitle" <~~ json,
             let initial: Scene = "initial" <~~ json,
             let player: Player = "player" <~~ json
-            else { return nil }
+        else { return nil }
+        
         self.title = title
         self.subtitle = subtitle
         self.initial = initial
@@ -54,6 +56,7 @@ public class Game: Glossy {
     
     public func toJSON() -> JSON? {
         return jsonify([
+            "id" ~~> id,
             "title" ~~> title,
             "subtitle" ~~> subtitle,
             "initial" ~~> initial,
@@ -64,18 +67,14 @@ public class Game: Glossy {
 
 extension Game {
     func steps() -> [Scene] {
-        return steps(scenes: [])
-    }
-    
-    private func steps(scenes: [Scene]) -> [Scene] {
-        guard scenes.count > 0 else {
-            return steps(scenes: [initial])
+        guard var next = initial.getNext() else {
+            return [initial]
         }
-        
-        guard let scene = scenes.last?.getNext() else {
-            return scenes
+        var scenes = [initial, next]
+        while let nextNext = next.getNext() {
+            next = nextNext
+            scenes.append(next)
         }
-        
-        return steps(scenes: [scenes, [scene]].flatMap {$0})
+        return scenes
     }
 }

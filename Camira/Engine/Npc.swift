@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class Npc: Glossy {
+public class Npc: Object, Glossy {
     var alive = true
     
     func kill () {
@@ -21,6 +21,10 @@ public class Npc: Glossy {
     }
     
     public required init?(json: JSON) {
+        guard
+            let id: String = "id" <~~ json
+        else { return nil }
+        
         if let alive: Bool = "alive" <~~ json {
             self.alive = alive
         }
@@ -28,6 +32,7 @@ public class Npc: Glossy {
     
     public func toJSON() -> JSON? {
         return jsonify([
+            "id" ~~> id,
             "alive" ~~> alive
         ])
     }

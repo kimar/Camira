@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class Action: Glossy {
+public class Action: Object, Glossy {
 
     let nextScene: Scene
 
@@ -22,8 +22,12 @@ public class Action: Glossy {
     }
     
     public required init?(json: JSON) {
-        guard let nextScene: Scene = "nextScene" <~~ json else { return nil}
-        guard let text: String = "text" <~~ json else { return nil }
+        guard
+            let id: String = "id" <~~ json,
+            let nextScene: Scene = "nextScene" <~~ json,
+            let text: String = "text" <~~ json
+        else { return nil }
+        
         self.nextScene = nextScene
         self.text = text
         if let selected: Bool = "selected" <~~ json {
@@ -33,6 +37,7 @@ public class Action: Glossy {
     
     public func toJSON() -> JSON? {
         return jsonify([
+            "id" ~~> id,
             "nextScene" ~~> nextScene,
             "text" ~~> text,
             "selected" ~~> selected

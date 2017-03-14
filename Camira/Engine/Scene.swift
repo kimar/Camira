@@ -9,19 +9,24 @@
 import Foundation
 import Gloss
 
-public class Scene: Glossy {
+public class Scene: Object, Glossy {
     
     let npcs: [Npc]?
     let nextScene: Scene?
-    
+    var enteredAt: Date?
+
     public let text: String
     public let actions: [Action]?
     
     public var selectedAction: Action?
-    public var notBefore: Date?
+    public var notBefore: TimeInterval?
     
     public required init?(json: JSON) {
-        guard let text: String = "text" <~~ json else { return nil }
+        guard
+            let id: String = "id" <~~ json,
+            let text: String = "text" <~~ json
+        else { return nil }
+        
         self.text = text
         if let actions: [Action] = "actions" <~~ json {
             self.actions = actions
@@ -35,8 +40,11 @@ public class Scene: Glossy {
         if let selectedAction: Action = "selectedAction" <~~ json {
             self.selectedAction = selectedAction
         }
-        if let notBefore: Date = "notBefore" <~~ json {
+        if let notBefore: TimeInterval = "notBefore" <~~ json {
             self.notBefore = notBefore
+        }
+        if let enteredAt: TimeInterval = "enteredAt" <~~ json {
+            self.enteredAt = Date(timeIntervalSince1970: enteredAt)
         }
     }
     
@@ -48,28 +56,30 @@ public class Scene: Glossy {
     }
     
     public func toJSON() -> JSON? {
-        let j = jsonify([
+        return jsonify([
+            "id" ~~> id,
             "text" ~~> text,
             "actions" ~~> actions,
             "npcs" ~~> npcs,
             "nextScene" ~~> nextScene,
             "selectedAction" ~~> selectedAction,
-            "notBefore" ~~> notBefore
-            ])
-        return j
+            "notBefore" ~~> notBefore,
+            "enteredAt" ~~> enteredAt?.timeIntervalSince1970
+        ])
     }
 }
 
 extension Scene {
     func getNext() -> Scene? {
         guard let nxt = nextScene else {
-            return actions?.filter{ $0 === selectedAction }.first?.nextScene
+            return selectedAction?.nextScene
         }
-        if let nbf = nxt.notBefore {
-            if Date().compare(nbf) == .orderedAscending {
-                return nil
-            }
-        }
+//        if let nbf = nxt.notBefore, let eat = nxt.enteredAt {
+//            if Date(timeIntervalSince1970: eat.timeIntervalSince1970 + nbf).compare(Date()) == .orderedDescending {
+//                return nil
+//            }
+//        }
+//        nxt.enteredAt = Date()
         return nxt
     }
     

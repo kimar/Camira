@@ -38,6 +38,7 @@ class ViewController: UITableViewController {
     }
     
     func rowDelta() -> Int {
+        print("datasource.numberOfRows(): \(datasource.numberOfRows()) - lastNumRows: \(lastNumRows)")
         return datasource.numberOfRows() - lastNumRows
     }
     
@@ -59,10 +60,13 @@ class ViewController: UITableViewController {
             guard let g = Game(storedGame: storedGame) else { return assertionFailure() }
             game = g
             datasource = Datasource(game: game)
-//            lastNumRows = storedGame.step
+            lastNumRows = storedGame.step
             return tableView.reloadData()
         }
         stored = (game.toJSON()!, lastNumRows)
+        let data = try! JSONSerialization.data(withJSONObject: stored!.json, options: .prettyPrinted)
+        print("stored json: \(NSString(data: data, encoding: 0))")
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -141,13 +145,13 @@ extension Scene {
     
     static func itsATrap() -> Scene {
         let p = Scene(text: "It's a trap...", actions: nil, npcs: nil, nextScene: Scene.damnTrapped())
-        p.notBefore = Date(timeIntervalSinceNow: 10)
+        p.notBefore = 3
         return p
     }
     
     static func damnTrapped() -> Scene {
         let p = Scene(text: "Damn you're trapped..it's over 😌", actions: nil, npcs: nil, nextScene: nil)
-        p.notBefore = Date(timeIntervalSinceNow: 13)
+        p.notBefore = 3
         return p
     }
     
@@ -169,7 +173,7 @@ extension Scene {
     
     static func gameOver() -> Scene {
         let p = Scene(text: "Really, over!", actions: nil, npcs: nil, nextScene: nil)
-        p.notBefore = Date(timeIntervalSinceNow: 15)
+        p.notBefore = 3
         return p
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Gloss
 
-public class Player: Glossy {
+public class Player: Object, Glossy {
 
     let name: String
     
@@ -18,12 +18,17 @@ public class Player: Glossy {
     }
     
     public required init?(json: JSON) {
-        guard let name: String = "name" <~~ json else { return nil }
+        guard
+            let id: String = "id" <~~ json,
+            let name: String = "name" <~~ json
+        else { return nil }
+        
         self.name = name
     }
     
     public func toJSON() -> JSON? {
         return jsonify([
+            "id" ~~> id,
             "name" ~~> name
         ])
     }
