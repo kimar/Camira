@@ -22,7 +22,7 @@ public class Npc: Object, Glossy {
     
     public required init?(json: JSON) {
         guard
-            let id: String = "id" <~~ json
+            let _: String = "id" <~~ json
         else { return nil }
         
         if let alive: Bool = "alive" <~~ json {

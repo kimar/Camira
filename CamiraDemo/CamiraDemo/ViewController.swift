@@ -42,7 +42,7 @@ class ViewController: UITableViewController {
         return datasource.numberOfRows() - lastNumRows
     }
     
-    func tick() {
+    @objc func tick() {
         synchronized(object: self) { [weak self] in
             guard let s = self else { return }
             if s.rowDelta() > 0 {
@@ -65,8 +65,7 @@ class ViewController: UITableViewController {
         }
         stored = (game.toJSON()!, lastNumRows)
         let data = try! JSONSerialization.data(withJSONObject: stored!.json, options: .prettyPrinted)
-        print("stored json: \(NSString(data: data, encoding: 0))")
-
+        print("stored json: \(NSString(data: data, encoding: 0)!)")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

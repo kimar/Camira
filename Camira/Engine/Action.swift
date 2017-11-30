@@ -23,7 +23,7 @@ public class Action: Object, Glossy {
     
     public required init?(json: JSON) {
         guard
-            let id: String = "id" <~~ json,
+            let _: String = "id" <~~ json,
             let nextScene: Scene = "nextScene" <~~ json,
             let text: String = "text" <~~ json
         else { return nil }

@@ -19,7 +19,7 @@ public class Player: Object, Glossy {
     
     public required init?(json: JSON) {
         guard
-            let id: String = "id" <~~ json,
+            let _: String = "id" <~~ json,
             let name: String = "name" <~~ json
         else { return nil }
         

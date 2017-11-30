@@ -41,7 +41,7 @@ public class Game: Object, Glossy {
     
     public required init?(json: JSON) {
         guard
-            let id: String = "id" <~~ json,
+            let _: String = "id" <~~ json,
             let title: String = "title" <~~ json,
             let subtitle: String = "subtitle" <~~ json,
             let initial: Scene = "initial" <~~ json,
