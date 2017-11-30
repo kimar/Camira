@@ -1,6 +1,6 @@
 # Camira
 
-[![CI Status](http://img.shields.io/travis/Marcus Kida/Camira.svg?style=flat)](https://travis-ci.org/Marcus Kida/Camira)
+[![TravisCI](https://api.travis-ci.org/kimar/Camira.svg?branch=master)](https://travis-ci.org/kimar/Camira)
 
 #### An iOS text adventure game engine, inspired by Lifeline and co.
 
