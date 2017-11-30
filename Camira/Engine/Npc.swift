@@ -13,11 +13,11 @@ public class Npc: Object, Glossy {
     var alive = true
     
     func kill () {
-        self.alive = false
+        alive = false
     }
     
     func revive () {
-        self.alive = true
+        alive = true
     }
     
     public required init?(json: JSON) {
