@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import Gloss
 
-public class Npc: Object, Glossy {
+public class Npc: Object, Codable {
     var alive = true
     
     func kill () {
@@ -18,22 +17,5 @@ public class Npc: Object, Glossy {
     
     func revive () {
         alive = true
-    }
-    
-    public required init?(json: JSON) {
-        guard
-            let _: String = "id" <~~ json
-        else { return nil }
-        
-        if let alive: Bool = "alive" <~~ json {
-            self.alive = alive
-        }
-    }
-    
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "id" ~~> id,
-            "alive" ~~> alive
-        ])
     }
 }

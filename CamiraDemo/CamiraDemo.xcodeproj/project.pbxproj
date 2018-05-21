@@ -100,7 +100,6 @@
 				07C7BC051DBB1B7200618856 /* Frameworks */,
 				07C7BC061DBB1B7200618856 /* Resources */,
 				07C7BC261DBB1BCD00618856 /* Embed Frameworks */,
-				07C7BC2D1DBB1EE200618856 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -159,24 +158,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		07C7BC2D1DBB1EE200618856 /* Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/Gloss.framework",
-			);
-			name = Carthage;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07C7BC041DBB1B7200618856 /* Sources */ = {

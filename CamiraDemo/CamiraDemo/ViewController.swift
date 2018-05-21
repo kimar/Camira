@@ -8,7 +8,6 @@
 
 import UIKit
 import Camira
-import Gloss
 
 class ViewController: UITableViewController {
     
@@ -18,7 +17,7 @@ class ViewController: UITableViewController {
     
     var lastNumRows = 0
     
-    var stored: (json: JSON, step: Int)?
+    var stored: Data?
     
     @IBAction func restart(sender: UIBarButtonItem) {
         resetGame()
@@ -57,15 +56,14 @@ class ViewController: UITableViewController {
     
     @IBAction func persistAndRestore() {
         if let storedGame = stored {
-            guard let g = Game(storedGame: storedGame) else { return assertionFailure() }
+            guard let g = try? JSONDecoder().decode(Game.self, from: storedGame) else { return assertionFailure() }
             game = g
             datasource = Datasource(game: game)
-            lastNumRows = storedGame.step
+            lastNumRows = g.step
             return tableView.reloadData()
         }
-        stored = (game.toJSON()!, lastNumRows)
-        let data = try! JSONSerialization.data(withJSONObject: stored!.json, options: .prettyPrinted)
-        print("stored json: \(NSString(data: data, encoding: 0)!)")
+        stored = try? JSONEncoder().encode(game)
+        print("stored json: \(NSString(data: stored!, encoding: 0)!)")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

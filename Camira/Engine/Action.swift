@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import Gloss
 
-public class Action: Object, Glossy {
+public class Action: Object, Codable {
 
     let nextScene: Scene
 
@@ -19,28 +18,5 @@ public class Action: Object, Glossy {
     public init(text: String, nextScene: Scene) {
         self.text = text
         self.nextScene = nextScene;
-    }
-    
-    public required init?(json: JSON) {
-        guard
-            let _: String = "id" <~~ json,
-            let nextScene: Scene = "nextScene" <~~ json,
-            let text: String = "text" <~~ json
-        else { return nil }
-        
-        self.nextScene = nextScene
-        self.text = text
-        if let selected: Bool = "selected" <~~ json {
-            self.selected = selected
-        }
-    }
-    
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "id" ~~> id,
-            "nextScene" ~~> nextScene,
-            "text" ~~> text,
-            "selected" ~~> selected
-        ])
     }
 }

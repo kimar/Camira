@@ -19,7 +19,6 @@
 		078490651DBB08430046801A /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078490591DBB08430046801A /* Scene.swift */; };
 		078490681DBB08430046801A /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0784905D1DBB08430046801A /* Semaphore.swift */; };
 		0784906A1DBB0B860046801A /* TestGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078490691DBB0B860046801A /* TestGame.swift */; };
-		0784906D1DBB11C80046801A /* Gloss.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0784906C1DBB11C80046801A /* Gloss.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0784906D1DBB11C80046801A /* Gloss.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,29 +7,13 @@
 //
 
 import Foundation
-import Gloss
 
-public class Player: Object, Glossy {
+public class Player: Object, Codable {
 
     let name: String
     
     public init(name: String) {
         self.name = name
     }
-    
-    public required init?(json: JSON) {
-        guard
-            let _: String = "id" <~~ json,
-            let name: String = "name" <~~ json
-        else { return nil }
-        
-        self.name = name
-    }
-    
-    public func toJSON() -> JSON? {
-        return jsonify([
-            "id" ~~> id,
-            "name" ~~> name
-        ])
-    }
+
 }
